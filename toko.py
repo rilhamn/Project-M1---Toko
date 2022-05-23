@@ -56,13 +56,13 @@ List Menu Menampilkan Item:
     angka_menu_menampilakan=input("Masukan angka menu yang ingin dijalankan = ")
     if angka_menu_menampilakan==str(1):
         if dict_toko["makanan"]=={} and dict_toko["minuman"]=={} and dict_toko["beauty"]=={}: 
-            print("Maaf, tidak dapat melakukan proses ini karena tidak ada item pada daftar item")
+            print("Maaf, tidak ada item yang dapat ditampilkan karena daftar item kosong")
         else:
             show_all()
         show_menu()
     elif angka_menu_menampilakan==str(2):
         if dict_toko["makanan"]=={} and dict_toko["minuman"]=={} and dict_toko["beauty"]=={}: 
-            print("Maaf, tidak dapat melakukan proses ini karena tidak ada item pada daftar item")
+            print("Maaf, tidak ada item yang dapat ditampilkan karena daftar item kosong")
         else:
             show_specific_menu()
         show_menu()
@@ -132,7 +132,7 @@ Tipe\tID\tNama\tStock\tHarga""")
             print(" ")
             x+=1    
     else:
-        print("Maaf, data item tidak ada")
+        print("Maaf, tipe item tidak dapat ditemukan")
 
 #Function Menampilakan Sebagian Item berdasarkan ID
 def show_specific2(tipe_item_menampikan2, id_item_menampilakan2):
@@ -145,7 +145,7 @@ ID\tNama\tStock\tHarga""")
                 print(str(v).capitalize(), end="\t")
         print("")               
     else:
-        print("Maaf, data item tidak ada")
+        print("Maaf, item tidak dapat ditemukan")
 
 #Function Menampilkan daftar item terjual
 def show_cart(dict_cart1):
@@ -227,7 +227,7 @@ def create():
                 else:
                     print("Silahkan Ketik 1/2")
     else:
-        print("Maaf tipe item tidak tersedia")
+        print("Maaf, tipe item tidak tersedia")
 
 #======================================== FUNCTION UPDATE ==========================================#
 #Function Menu Update Data
@@ -240,7 +240,7 @@ List Menu Update Item:
     angka_menu_update=input("Masukan angka menu yang ingin dijalankan = ").lower()
     if angka_menu_update==str(1):
         if dict_toko["makanan"]=={} and dict_toko["minuman"]=={} and dict_toko["beauty"]=={}: 
-            print("Maaf, tidak dapat melakukan proses ini karena tidak ada item pada daftar item")
+            print("Maaf, tidak dapat melakukan proses ini karena daftar item kosong")
         else:
             show_all()
             update()
@@ -294,7 +294,7 @@ def update():
             else:
                 print("Silahkan Ketik 1/2")
     else:
-        print("Maaf, data item tidak ada")
+        print("Maaf, item tidak dapat ditemukan")
 
 #======================================== FUNCTION HAPUS ===========================================#
 #Function Menu Menghapus Item
@@ -307,7 +307,7 @@ List Menu Menghapus Item:
     angka_menu_menghapus = input("Masukan angka menu yang ingin dijalankan = ")
     if angka_menu_menghapus==str(1):
         if dict_toko["makanan"]=={} and dict_toko["minuman"]=={} and dict_toko["beauty"]=={}: 
-            print("Maaf, tidak dapat melakukan proses ini karena tidak ada item pada daftar item")
+            print("Maaf, tidak dapat melakukan proses ini karena daftar item kosong")
         else:
             show_all()
             delete()
@@ -336,7 +336,7 @@ def delete():
             else:
                 print("Silahkan Ketik 1/2")
     else:
-        print("Maaf, data item tidak ada")
+        print("Maaf, item tidak dapat ditemukan")
 
 #========================================= FUNCTION SELL ===========================================#
 #Function Menu Item Terjual
@@ -350,7 +350,7 @@ List Menu Item Terjual:
     angka_menu_terjual = input("Masukan angka menu yang ingin dijalankan = ")
     if angka_menu_terjual==str(1):
         if dict_toko["makanan"]=={} and dict_toko["minuman"]=={} and dict_toko["beauty"]=={}: 
-            print("Maaf, tidak dapat melakukan proses ini karena tidak ada item pada daftar item")
+            print("Maaf, tidak dapat melakukan proses ini karena daftar item kosong")
         else:
             show_all()
             sell()
@@ -409,7 +409,7 @@ List Menu Pencatatan Item Terjual:
                     else:
                         print("Silahkan Ketik 1/2")
         else:
-            print("Maaf, data item tidak ada")
+            print("Maaf, item tidak dapat ditemukan")
 
 #======================================== FUNCTION EXTRA ===========================================#
 #Function Untuk Mengetahui Tipe item dari ID Item dan Mengecek apakah ID Item ada atau tidak
