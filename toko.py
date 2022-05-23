@@ -12,7 +12,7 @@ List Menu Utama:
 5. Item Terjual dan Gross Revenue
 6. Exit Program
     """)
-    angka_menu_utama = input("Masukan angka menu yang ingin dijalankan = ")
+    angka_menu_utama=input("Masukan angka menu yang ingin dijalankan = ")
 
     #Menampilkan Daftar Buah
     if angka_menu_utama==str(1):
@@ -82,7 +82,7 @@ Tipe\tID\tNama\tStock\tHarga""")
             print(k.capitalize(), end="\t")       
             x=0         
             for k1, v1 in sorted(v.items()):
-                if x != 0:
+                if x!=0:
                     print(" ", end="\t")
                 print(k1.upper(), end="\t")            
                 for v2 in v1.values():
@@ -123,7 +123,7 @@ Tipe\tID\tNama\tStock\tHarga""")
         x=0
         print(tipe_item_menampikan1.capitalize(), end="\t")            
         for k, v in sorted(dict_toko[tipe_item_menampikan1].items()): 
-            if x == 0:
+            if x==0:
                 print(k.upper(), end="\t")
             else:
                 print("\t"+k.upper(), end="\t")                                       
@@ -136,14 +136,14 @@ Tipe\tID\tNama\tStock\tHarga""")
 
 #Function Menampilakan Sebagian Item berdasarkan ID
 def show_specific2(tipe_item_menampikan2, id_item_menampilakan2):
-    if tipe_item_menampikan2!=0:
+    if tipe_item_menampikan2!=False:
         print(f"""
 Daftar Item:
 ID\tNama\tStock\tHarga""")
         print(id_item_menampilakan2.upper(), end="\t")               
         for v in dict_toko[tipe_item_menampikan2][id_item_menampilakan2].values(): 
                 print(str(v).capitalize(), end="\t")
-        print("")               
+        print(" ")               
     else:
         print("Maaf, item tidak dapat ditemukan")
 
@@ -157,7 +157,7 @@ Tipe\tID\tNama\tQty\tHarga\tTotal""")
             print(k.capitalize(), end="\t")       
             x=0         
             for k1, v1 in sorted(v.items()):
-                if x == 0:
+                if x==0:
                     print(k1.upper(), end="\t")   
                 else:
                     print(" ", end="\t")
@@ -196,7 +196,7 @@ def create():
     if tipe_item_menambah in dict_toko.keys():
         id_item_menambah=input("ID item yang ingin ditambah = ").lower()
         konfirmasi_item=convert_id_tipe(id_item_menambah)
-        if konfirmasi_item!=0:
+        if konfirmasi_item!=False:
             print("Item dengan ID yang sama sudah ada")
         else:
             nama_item_baru=input("Nama Item = ")
@@ -255,7 +255,7 @@ List Menu Update Item:
 def update():
     id_item_update=input("\nID Item yang ingin diupdate = ").lower()
     tipe_item_update=convert_id_tipe(id_item_update)
-    if tipe_item_update!=0:
+    if tipe_item_update!=False:
         show_specific2(tipe_item_update, id_item_update)
         while True:
             continue_process("update")
@@ -264,7 +264,7 @@ def update():
                 while True:
                     data_key_update=input("Masukan data apa yang ingin diupdate = ").lower()
                     if data_key_update in dict_toko[tipe_item_update][id_item_update]:
-                        if data_key_update == "nama":
+                        if data_key_update=="nama":
                             data_value_update=input("Masukan value data yang ingin diupdate = ")
                         else:
                             while True:
@@ -304,7 +304,7 @@ List Menu Menghapus Item:
 1. Menghapus Item pada Daftar Item
 2. Kembali ke Menu Utama
     """)
-    angka_menu_menghapus = input("Masukan angka menu yang ingin dijalankan = ")
+    angka_menu_menghapus=input("Masukan angka menu yang ingin dijalankan = ")
     if angka_menu_menghapus==str(1):
         if dict_toko["makanan"]=={} and dict_toko["minuman"]=={} and dict_toko["beauty"]=={}: 
             print("Maaf, tidak dapat melakukan proses ini karena daftar item kosong")
@@ -322,7 +322,7 @@ List Menu Menghapus Item:
 def delete():
     id_item_menghapus=input("\nID item yang ingin dihapus = ").lower()
     tipe_item_menghapus=convert_id_tipe(id_item_menghapus)
-    if tipe_item_menghapus!=0:
+    if tipe_item_menghapus!=False:
         show_specific2(tipe_item_menghapus, id_item_menghapus)
         while True:
             continue_process("menghapus")
@@ -371,12 +371,12 @@ def sell():
         dict_cart_add={}
         id_item_terjual=input("\nMasukan ID item yang terjual = ").lower()
         tipe_item_terjual=convert_id_tipe(id_item_terjual)
-        if tipe_item_terjual!=0:
+        if tipe_item_terjual!=False:
             jumlah_item_terjual=int(input("Masukan jumlah item yang terjual = "))
             convert_id_tipe(id_item_terjual)
             if int(dict_toko[tipe_item_terjual][id_item_terjual]["stock"])<jumlah_item_terjual:
                 print("Jumlah yang dimasukkan terlalu banyak")
-                print(f"""Stock {dict_toko[tipe_item_terjual][id_item_terjual]["nama"]} tinggal = {dict_toko[tipe_item_terjual][id_item_terjual]["stock"]}""")
+                print(f"""Stock {dict_toko[tipe_item_terjual][id_item_terjual]["nama"]} tinggal={dict_toko[tipe_item_terjual][id_item_terjual]["stock"]}""")
             else:
                 dict_cart_add[id_item_terjual]={"nama":dict_toko[tipe_item_terjual][id_item_terjual]["nama"],
                                                 "qty":jumlah_item_terjual, 
@@ -391,10 +391,10 @@ List Menu Pencatatan Item Terjual:
 3. Membatalkan Finalisasi Item Terjual dan Kembali ke List Menu Item Terjual
             """)
                 while True:
-                    angka_terjual2 = input("Masukan angka menu yang ingin dijalankan = ")
-                    if angka_terjual2 == str(1):
+                    angka_terjual2=input("Masukan angka menu yang ingin dijalankan = ")
+                    if angka_terjual2==str(1):
                         break
-                    elif angka_terjual2 == str(2):
+                    elif angka_terjual2==str(2):
                         total=0
                         for k, v in dict_cart.items():
                             for k1, v1 in v.items():
@@ -404,7 +404,7 @@ List Menu Pencatatan Item Terjual:
                         global gross_revenue
                         gross_revenue=gross_revenue+total
                         sell_menu()
-                    elif angka_terjual2 == str(3):
+                    elif angka_terjual2==str(3):
                         sell_menu()
                     else:
                         print("Silahkan Ketik 1/2")
@@ -414,10 +414,10 @@ List Menu Pencatatan Item Terjual:
 #======================================== FUNCTION EXTRA ===========================================#
 #Function Untuk Mengetahui Tipe item dari ID Item dan Mengecek apakah ID Item ada atau tidak
 def convert_id_tipe(id_item): 
-    tipe_item=0
+    tipe_item=False
     for k, v in dict_toko.items():
         for k1 in v.keys():
-            if k1 == id_item:
+            if k1==id_item:
                 tipe_item=k
     return tipe_item
 
