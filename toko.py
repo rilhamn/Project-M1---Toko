@@ -431,7 +431,7 @@ Apakah anda yakin untuk {tipe_proses} item:
 
 #================================ INTIAL CONDITION AND PROCESS =====================================#
 #Project Description :
-#Toko yang menjual tiga tipe item (makanan, minuman, beauty)
+#Program yang dibuat untuk pendataan item di sebuah toko yang menjual tiga tipe item (makanan, minuman, beauty)
 #Di setiap tipe item ini akan ada beberapa barang yang memiliki unique id
 #unique id akan menjadi key untuk beberapa value item tersebut (nama, stock dan harga)
 
