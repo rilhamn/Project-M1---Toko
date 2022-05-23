@@ -446,9 +446,7 @@ dict_toko = {"makanan":{"rt1":{"nama":"roti","stock":6,"harga":15000}, },
             "minuman":{"su3":{"nama":"susu","stock":8,"harga":16500}, "js1":{"nama":"jus","stock":10,"harga":22000}, }, 
             "beauty":{"sh1":{"nama":"shampo","stock":5,"harga":50000}, }} 
 
-dict_toko1 = {"makanan":{}, 
-            "minuman":{}, 
-            "beauty":{}} #Dummy dictionary
+#dict_toko1 = {"makanan":{}, "minuman":{}, "beauty":{}} #Dummy dictionary
 
 #Revenue
 gross_revenue=0
