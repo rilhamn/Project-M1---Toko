@@ -101,12 +101,21 @@ List Menu Menampilkan Sebagian Item:
     angka_menu_menampilakan_sebagian=input("Masukan angka menu yang ingin dijalankan = ")
     if angka_menu_menampilakan_sebagian==str(1):
         tipe_item_menampilkan = input("Tipe item apa yang ingin ditampilakan = ").lower()
-        show_specific1(tipe_item_menampilkan)
+        if tipe_item_menampilkan in dict_toko.keys():
+            if dict_toko[tipe_item_menampilkan]!={}:
+                show_specific1(tipe_item_menampilkan)
+            else:
+                print(f"Maaf, list item pada tipe {tipe_item_menampilkan} kosong")
+        else:
+            print("Maaf, tipe item tidak dapat ditemukan")
         show_specific_menu()
     elif angka_menu_menampilakan_sebagian==str(2):
         id_item_menampilkan=input("ID Item yang ingin ditampilkan = ").lower()
         tipe_item_menampilkan=convert_id_tipe(id_item_menampilkan)
-        show_specific2(tipe_item_menampilkan, id_item_menampilkan)
+        if tipe_item_menampilkan!="nodata":
+            show_specific2(tipe_item_menampilkan, id_item_menampilkan)
+        else:
+            print("Maaf, item tidak dapat ditemukan")
         show_specific_menu()       
     elif angka_menu_menampilakan_sebagian==str(3):
         show_menu()
@@ -115,37 +124,31 @@ List Menu Menampilkan Sebagian Item:
         show_specific_menu()
 
 #Function Menampilakan Sebagian Item berdasarkan Tipe
-def show_specific1(tipe_item_menampikan1):
-    if tipe_item_menampikan1 in dict_toko.keys() and dict_toko[tipe_item_menampikan1]!={}:
-        print(f"""
+def show_specific1(tipe_item_menampilkan1):
+    print(f"""
 Daftar Item:
 Tipe\tID\tNama\tStock\tHarga""")
-        x=0
-        print(tipe_item_menampikan1.capitalize(), end="\t")            
-        for k, v in sorted(dict_toko[tipe_item_menampikan1].items()): 
-            if x==0:
-                print(k.upper(), end="\t")
-            else:
-                print("\t"+k.upper(), end="\t")                                       
-            for k1, v1 in v.items():
-                print(str(v1).capitalize(), end="\t")
-            print(" ")
-            x+=1    
-    else:
-        print("Maaf, tipe item tidak dapat ditemukan")
+    x=0
+    print(tipe_item_menampilkan1.capitalize(), end="\t")            
+    for k, v in sorted(dict_toko[tipe_item_menampilkan1].items()): 
+        if x==0:
+            print(k.upper(), end="\t")
+        else:
+            print("\t"+k.upper(), end="\t")                                       
+        for k1, v1 in v.items():
+            print(str(v1).capitalize(), end="\t")
+        print(" ")
+        x+=1         
 
 #Function Menampilakan Sebagian Item berdasarkan ID
-def show_specific2(tipe_item_menampikan2, id_item_menampilakan2):
-    if tipe_item_menampikan2!="nodata":
-        print(f"""
+def show_specific2(tipe_item_menampilkan2, id_item_menampilakan2):
+    print(f"""
 Daftar Item:
 ID\tNama\tStock\tHarga""")
-        print(id_item_menampilakan2.upper(), end="\t")               
-        for v in dict_toko[tipe_item_menampikan2][id_item_menampilakan2].values(): 
-                print(str(v).capitalize(), end="\t")
-        print(" ")               
-    else:
-        print("Maaf, item tidak dapat ditemukan")
+    print(id_item_menampilakan2.upper(), end="\t")               
+    for v in dict_toko[tipe_item_menampilkan2][id_item_menampilakan2].values(): 
+            print(str(v).capitalize(), end="\t")
+    print(" ")               
 
 #Function Menampilkan daftar item terjual
 def show_cart(dict_cart1):
