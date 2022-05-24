@@ -105,7 +105,7 @@ List Menu Menampilkan Sebagian Item:
             if dict_toko[tipe_item_menampilkan]!={}:
                 show_specific1(tipe_item_menampilkan)
             else:
-                print(f"Maaf, list item pada tipe {tipe_item_menampilkan} kosong")
+                print(f"Maaf, daftar item pada tipe {tipe_item_menampilkan} kosong")
         else:
             print("Maaf, tipe item tidak dapat ditemukan")
         show_specific_menu()
