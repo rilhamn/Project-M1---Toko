@@ -109,7 +109,7 @@ List Menu Menampilkan Sebagian Item:
         show_specific2(tipe_item_menampilkan, id_item_menampilkan)
         show_specific_menu()       
     elif angka_menu_menampilakan_sebagian==str(3):
-        pass
+        show_menu()
     else:
         print("Silahkan ketik 1/2/3")
         show_specific_menu()
