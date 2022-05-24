@@ -136,7 +136,7 @@ Tipe\tID\tNama\tStock\tHarga""")
 
 #Function Menampilakan Sebagian Item berdasarkan ID
 def show_specific2(tipe_item_menampikan2, id_item_menampilakan2):
-    if tipe_item_menampikan2!=False:
+    if tipe_item_menampikan2!="nodata":
         print(f"""
 Daftar Item:
 ID\tNama\tStock\tHarga""")
@@ -196,7 +196,7 @@ def create():
     if tipe_item_menambah in dict_toko.keys():
         id_item_menambah=input("ID item yang ingin ditambah = ").lower()
         konfirmasi_item=convert_id_tipe(id_item_menambah)
-        if konfirmasi_item!=False:
+        if konfirmasi_item!="nodata":
             print("Item dengan ID yang sama sudah ada")
         else:
             nama_item_baru=input("Nama Item = ")
@@ -255,7 +255,7 @@ List Menu Update Item:
 def update():
     id_item_update=input("\nID Item yang ingin diupdate = ").lower()
     tipe_item_update=convert_id_tipe(id_item_update)
-    if tipe_item_update!=False:
+    if tipe_item_update!="nodata":
         show_specific2(tipe_item_update, id_item_update)
         while True:
             continue_process("update")
@@ -322,7 +322,7 @@ List Menu Menghapus Item:
 def delete():
     id_item_menghapus=input("\nID item yang ingin dihapus = ").lower()
     tipe_item_menghapus=convert_id_tipe(id_item_menghapus)
-    if tipe_item_menghapus!=False:
+    if tipe_item_menghapus!="nodata":
         show_specific2(tipe_item_menghapus, id_item_menghapus)
         while True:
             continue_process("menghapus")
@@ -371,7 +371,7 @@ def sell():
         dict_cart_add={}
         id_item_terjual=input("\nMasukan ID item yang terjual = ").lower()
         tipe_item_terjual=convert_id_tipe(id_item_terjual)
-        if tipe_item_terjual!=False:
+        if tipe_item_terjual!="nodata":
             jumlah_item_terjual=int(input("Masukan jumlah item yang terjual = "))
             convert_id_tipe(id_item_terjual)
             if int(dict_toko[tipe_item_terjual][id_item_terjual]["stock"])<jumlah_item_terjual:
@@ -414,7 +414,7 @@ List Menu Pencatatan Item Terjual:
 #======================================== FUNCTION EXTRA ===========================================#
 #Function Untuk Mengetahui Tipe item dari ID Item dan Mengecek apakah ID Item ada atau tidak
 def convert_id_tipe(id_item): 
-    tipe_item=False
+    tipe_item="nodata"
     for k, v in dict_toko.items():
         for k1 in v.keys():
             if k1==id_item:
