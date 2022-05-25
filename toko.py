@@ -14,7 +14,7 @@ List Menu Utama:
     """)
     angka_menu_utama=input("Masukan angka menu yang ingin dijalankan = ")
 
-    #Menampilkan Daftar Buah
+    #Menampilkan Daftar Item
     if angka_menu_utama==str(1):
         show_menu()
 
