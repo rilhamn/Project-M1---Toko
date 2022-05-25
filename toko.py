@@ -374,9 +374,14 @@ def sell():
         dict_cart_add={}
         id_item_terjual=input("\nMasukan ID item yang terjual = ").lower()
         tipe_item_terjual=convert_id_tipe(id_item_terjual)
-        if tipe_item_terjual!="nodata":
-            jumlah_item_terjual=int(input("Masukan jumlah item yang terjual = "))
-            convert_id_tipe(id_item_terjual)
+        if tipe_item_terjual!="nodata": 
+            while True:
+                jumlah_item_terjual=input("Masukan jumlah item yang terjual = ")
+                if jumlah_item_terjual.isnumeric():
+                    jumlah_item_terjual=int(jumlah_item_terjual)
+                    break
+                else:
+                    print("Mohon masukan data numerical")
             if int(dict_toko[tipe_item_terjual][id_item_terjual]["stock"])<jumlah_item_terjual:
                 print("Jumlah yang dimasukkan terlalu banyak")
                 print(f"""Stock {dict_toko[tipe_item_terjual][id_item_terjual]["nama"]} tinggal={dict_toko[tipe_item_terjual][id_item_terjual]["stock"]}""")
